@@ -1,0 +1,44 @@
+#Mediocrates ... eh ok
+/*
+
+!/.config
+!/.gitignore
+!/.bashrc
+!/README.md
+!/LICENSE
+
+.config/go
+.config/gtk-3.0
+.config/gtk-4.0
+.config/kde.org
+.config/dconf
+.config/Code
+.config/session
+.config/systemd
+.config/xsettingsd
+
+# Secrets and credentials
+**/secrets*.yml
+**/*.key
+**/*.pem
+**/private.key
+**/*credentials*
+**/auth*
+
+# GNOME keyring and system
+gnome-keyring/
+gnome-session/
+pulse/
+autostart/
+mimeapps.list
+
+# Caches and temporary
+.cache/
+*.log
+*~
+.netrwhist
+recently-used.xbel
+
+# GPG/SSH
+.gnupg/
+.ssh/
