@@ -13,7 +13,7 @@ font-size = 24
 
 text-color = #4e4e5f
 
-prompt-text = " : "
+prompt-text = " : Cliphist "
 
 background-color = #11111bd9
 selection-color =  #83A4E7

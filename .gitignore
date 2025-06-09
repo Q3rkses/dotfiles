@@ -16,6 +16,7 @@
 .config/session
 .config/systemd
 .config/xsettingsd
+.config/WebCord
 
 # Secrets and credentials
 **/secrets*.yml
