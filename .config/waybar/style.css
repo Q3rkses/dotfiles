@@ -60,13 +60,18 @@ window#waybar {
 #cpu,
 #memory,
 #custom-bluelight-sunset,
+#bluetooth,
 #tray,
 #workspaces,
 
 #backlight {
     background: #1e1e2e;
-    padding: 0px 8px;
-    border-radius: 10px 0px 0px 10px;
+    padding: 0px 6px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#backlight {
+    margin-right: 6px;
 }
 
 #tray {
@@ -110,27 +115,22 @@ window#waybar {
 
 #custom-bluelight-sunset {
     color:#a6adc8;
-    border-radius: 10px 10px 10px 10px;
-    margin-right: 6px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 #pulseaudio {
     color: #a6adc8;   
     border-radius: 0px 0px 0px 0px;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-#pulseaudio.microphone {
-    color: #a6adc8;
-    border-radius: 0px 10px 10px 0px;
-    border-left: 0px;
-    border-right: 0px;
-    margin-right: 5px;
 }
 
 #battery {
     color:#a6adc8;
     border-radius: 0px 10px 10px 0px;
+    margin-right: 6px;
+}
+
+#bluetooth {
+    color: #a6adc8;
+    border-radius: 10px 10px 10px 10px;
     margin-right: 6px;
 }

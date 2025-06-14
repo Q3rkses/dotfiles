@@ -24,12 +24,12 @@
     "modules-center": ["hyprland/window"],
     "modules-right": [
         "tray",
+        "bluetooth",
         "custom/bluelight-sunset",
-        "network",
-        "battery",
         "backlight",
+        "network",
         "pulseaudio",
-        "pulseaudio#microphone"
+        "battery"
     ],
 
     "hyprland/window": {
@@ -37,19 +37,23 @@
     },
     
     "hyprland/workspaces": {
+        "active-only": false,
         "disable-scroll": true,
         "all-outputs": true,
-        "on-click": "activate"
-        //"format": "{icon}",
+        "on-click": "activate",
+
+        "persistent-workspaces": {
+            "*": [1,2,3]
+            }   
     },
 
     "tray": {
-        "icon-size": 13,
+        "icon-size": 15,
         "spacing": 10
     },
 
     "clock": {
-        "format": "{:%A    %B-%d-%Y    %I:%M:%S %p}",
+        "format": "{:%A  %B-%d-%Y  %I:%M:%S %p}",
         "interval": 1,
         "rotate": 0,
         "tooltip-format": "<tt>{calendar}</tt>",
@@ -91,20 +95,19 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{icon}{capacity}%",
+        "format-charging": "{capacity}%",
+        "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
         "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "pulseaudio": {
-        "format": "{icon}  {volume}%",
+        "format": "{icon} {volume}%",
         "tooltip": false,
-        "format-muted": "  Muted",
-        "on-click": "pamixer -t",
-        "on-scroll-up": "pamixer -i 1",
-        "on-scroll-down": "pamixer -d 1",
+        "format-muted": " Muted",
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -117,15 +120,38 @@
         }
     },
 
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "  Muted",
-        "on-click": "pamixer --default-source -t",
-        "on-scroll-up": "pamixer --default-source -i 5",
-        "on-scroll-down": "pamixer --default-source -d 5",
-        "scroll-step": 5
+    "bluetooth": {
+        "format-on": "󰂯  ",
+        "format-off": "󰂲  ",
+        "format-disabled": "󰂲  ",
+        "on-click": "rfkill toggle bluetooth",
+        "on-click-right": "blueman-manager"
     },
+
+    "network": {
+        "tooltip": true,
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "󰈀 ",
+        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰖪 ",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+        "interval": 2
+    }
+}
+
+    // no longer used modules
+
+    // "pulseaudio#microphone": {
+    //     "format": "{format_source}",
+    //     "format-source": " {volume}%",
+    //     "format-source-muted": "  Muted",
+    //     "on-click": "pamixer --default-source -t",
+    //     "on-scroll-up": "pamixer --default-source -i 5",
+    //     "on-scroll-down": "pamixer --default-source -d 5",
+    //     "scroll-step": 5
+    // },
 
     // "memory": {
     //     "states": {
@@ -150,16 +176,3 @@
     //     "format-alt": "{icon0}{icon1}{icon2}{icon3}",
     //     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     // },
-
-    "network": {
-        "tooltip": true,
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 ",
-        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-        "format-linked": "󰈀 {ifname} (No IP)",
-        "format-disconnected": "󰖪 ",
-        "tooltip-format-disconnected": "Disconnected",
-        "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-        "interval": 2
-    }
-}

@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Show an icon + temperature for Waybar
-
 
 temp=$(hyprctl hyprsunset temperature 2>/dev/null) || exit 1
 
@@ -16,4 +14,4 @@ case $temp in
   * ) icon="🌡" ;;
 esac
 
-printf '%s %sK\n' "$icon" "$temp"
+printf "%s %sK" "$icon" "$temp"

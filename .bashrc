@@ -19,4 +19,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+source /usr/share/bash-completion/bash_completion
+
 fastfetch
