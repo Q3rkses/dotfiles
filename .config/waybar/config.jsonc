@@ -8,7 +8,6 @@
  * 
  * ----------------------------------------
 */
-
 {
     "layer": "top",
     "position": "top",
@@ -21,7 +20,9 @@
         "clock",
         "hyprland/workspaces"
     ],
-    "modules-center": ["hyprland/window"],
+    "modules-center": [
+        "hyprland/window"
+    ],
     "modules-right": [
         "tray",
         "bluetooth",
@@ -31,27 +32,26 @@
         "pulseaudio",
         "battery"
     ],
-
     "hyprland/window": {
         "format": "󰣇 {}"
     },
-    
     "hyprland/workspaces": {
         "active-only": false,
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-
         "persistent-workspaces": {
-            "*": [1,2,3]
-            }   
+            "*": [
+                1,
+                2,
+                3
+            ]
+        }
     },
-
     "tray": {
         "icon-size": 15,
         "spacing": 10
     },
-
     "clock": {
         "format": "{:%A  %B-%d-%Y  %I:%M:%S %p}",
         "interval": 1,
@@ -70,7 +70,6 @@
             }
         }
     },
-
     "custom/bluelight-sunset": {
         "exec": "/home/supermann/.config/sh_scripts/bluelight/bluelight-sunset.sh",
         "interval": 600,
@@ -78,17 +77,18 @@
         "format": "{}",
         "on-click": "/home/supermann/.config/sh_scripts/bluelight/bluelight-sunset-menu.sh"
     },
-
-
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "min-length": 6
     },
-
     "battery": {
         "states": {
             "good": 95,
@@ -99,9 +99,20 @@
         "format-charging": "{capacity}%",
         "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
-        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "format-icons": [
+            "󰂃",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
     },
-
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": false,
@@ -116,18 +127,23 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["","", "", ""]
+            "default": [
+                "",
+                "",
+                "",
+                ""
+            ]
         }
     },
-
     "bluetooth": {
         "format-on": "󰂯  ",
         "format-off": "󰂲  ",
         "format-disabled": "󰂲  ",
+        "format-connected-battery": " {device_battery_percentage}%",
+        //"tooltip-format-connected-battery": "{device_battery_percentage} %",
         "on-click": "rfkill toggle bluetooth",
         "on-click-right": "blueman-manager"
     },
-
     "network": {
         "tooltip": true,
         "format-wifi": " {signalStrength}%",
@@ -140,39 +156,35 @@
         "interval": 2
     }
 }
-
-    // no longer used modules
-
-    // "pulseaudio#microphone": {
-    //     "format": "{format_source}",
-    //     "format-source": " {volume}%",
-    //     "format-source-muted": "  Muted",
-    //     "on-click": "pamixer --default-source -t",
-    //     "on-scroll-up": "pamixer --default-source -i 5",
-    //     "on-scroll-down": "pamixer --default-source -d 5",
-    //     "scroll-step": 5
-    // },
-
-    // "memory": {
-    //     "states": {
-    //         "c": 90, // critical
-    //         "h": 60, // high
-    //         "m": 30 // medium
-    //     },
-    //     "interval": 10,
-    //     "format": "󰾆 {used}GB",
-    //     "format-m": "󰾅 {used}GB",
-    //     "format-h": "󰓅 {used}GB",
-    //     "format-c": " {used}GB",
-    //     "format-alt": "󰾆 {percentage}%",
-    //     "max-length": 10,
-    //     "tooltip": true,
-    //     "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
-    // },
-
-    // "cpu": {
-    //     "interval": 10,
-    //     "format": "󰍛 {usage}%",
-    //     "format-alt": "{icon0}{icon1}{icon2}{icon3}",
-    //     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
-    // },
+// no longer used modules
+// "pulseaudio#microphone": {
+//     "format": "{format_source}",
+//     "format-source": " {volume}%",
+//     "format-source-muted": "  Muted",
+//     "on-click": "pamixer --default-source -t",
+//     "on-scroll-up": "pamixer --default-source -i 5",
+//     "on-scroll-down": "pamixer --default-source -d 5",
+//     "scroll-step": 5
+// },
+// "memory": {
+//     "states": {
+//         "c": 90, // critical
+//         "h": 60, // high
+//         "m": 30 // medium
+//     },
+//     "interval": 10,
+//     "format": "󰾆 {used}GB",
+//     "format-m": "󰾅 {used}GB",
+//     "format-h": "󰓅 {used}GB",
+//     "format-c": " {used}GB",
+//     "format-alt": "󰾆 {percentage}%",
+//     "max-length": 10,
+//     "tooltip": true,
+//     "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
+// },
+// "cpu": {
+//     "interval": 10,
+//     "format": "󰍛 {usage}%",
+//     "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+//     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+// },

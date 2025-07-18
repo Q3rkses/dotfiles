@@ -19,6 +19,12 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-source /usr/share/bash-completion/bash_completion
+# enable system completions
+[[ -f /usr/share/bash-completion/bash_completion ]] \
+  && . /usr/share/bash-completion/bash_completion
+
+# enable user completions
+[[ -f ~/.local/share/bash-completion/completions/rustup ]] \
+  && . ~/.local/share/bash-completion/completions/rustup
 
 fastfetch
